@@ -1,0 +1,14 @@
+
+<%= simple_form_for(@costume) do |f| %>
+
+  <%= f.input :name %>
+  <%= f.input :category %>
+  <%= f.input :size %>
+  <%= f.input :price_per_day %>
+  <%= f.input :available? %>
+  <%= f.input :image_url %>
+
+  <%= f.submit %>
+
+
+<% end %>

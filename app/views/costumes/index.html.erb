@@ -1,0 +1,12 @@
+
+
+<div class="container">
+  <ul class="list-group">
+  <% @costumes.each do |costume| %>
+    <li class="list-group-item"><%= costume.id%><%=link_to costume.name, costume_path(costume) %></li>
+  <% end %>
+  </ul>
+</div>
+
+
+<p><%=link_to name="add a new costume", new_costume_path, class: "btn btn-primary" %></p>
