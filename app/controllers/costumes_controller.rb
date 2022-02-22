@@ -8,7 +8,7 @@ class CostumesController < ApplicationController
   end
 
   def show
-    @costume = Costume.find(params[:id])
+    find_costume
   end
 
   def create
@@ -22,6 +22,10 @@ class CostumesController < ApplicationController
   end
 
   private
+
+  def find_costume
+    @costume = Costume.find(params[:id])
+  end
 
   def costume_params
     params.require(:costume).permit(:name, :category, :size, :price_per_day, :available?, :image_url)
