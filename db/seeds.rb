@@ -26,6 +26,6 @@ Costume.create!(name: "Herokuman", user: User.all.sample, category: "Superhero",
 Costume.create!(name: "Jonaman", user: User.all.sample, category: "Superhero",  size: 135, price_per_day: 34, available?: true, image_url: "aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9hc3IvODdkNTM1ZTctZWUyMS00MzJmLWE5N2UtYjNmZjhkZjA1Nzk3LjEwNDc5NjkyNGRmMjkyNGVlMzVhYjEyZGI5MGRiNTMyLmpwZWc")
 
 Booking.create!(user: User.all.sample, costume: Costume.all.sample, status: "pending", start_date: Date.today, end_date: Date.today + 5.days)
-Booking.create!(user: User.all.sample, costume: Costume.all.sample, status: "accepted", start_date: Date.today - 3.days, end_date: Date.today + 6.days)
+Booking.create!(user: User.all.sample, costume: Costume.all.sample, status: "accepted", start_date: Date.today + 3.days, end_date: Date.today + 6.days)
 
 puts "Seeds created!"
