@@ -20,8 +20,6 @@ class CostumesController < ApplicationController
     end
   end
 
-
-
   private
 
   def costume_params

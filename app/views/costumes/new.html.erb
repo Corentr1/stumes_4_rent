@@ -1,9 +1,15 @@
+<h1>
+
+space
+
+</h1>
 
 <%= simple_form_for(@costume) do |f| %>
 
   <%= f.input :name %>
   <%= f.input :category %>
-  <%= f.input :size %>
+  <%= f.label :size %>
+  <%= f.number_field :size %>
   <%= f.input :price_per_day %>
   <%= f.input :available? %>
   <%= f.input :image_url %>
