@@ -1,5 +1,3 @@
-<%= render "pages/navbar" %>
-
 <div class="container">
   <div class="card-product">
     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
@@ -8,7 +6,8 @@
       <p class="card-product-category"><strong><%= @costume.category %></strong></p>
       <p class="card-product-size"><%= @costume.size %> cm</p>
       <p class="card-product-price"><%= @costume.price_per_day %> €</p>
-      <%= link_to "Book now", new_costume_booking_path(@costume), class: "btn btn-primary" %>
+      <%= link_to "Delete", costume_path(@costume), method: :delete, data: { confirm: "Are you sure you want to delete this Costume?"}, class: "btn btn-secondary" %>
+      <%= link_to "Edit 'Stume", edit_costume_path(@costume), class:"btn btn-info" %>
       <p class="tick"><% if @costume.available? %>
           <%= "✅" %>
           <% else %>
