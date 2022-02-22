@@ -1,5 +1,20 @@
-<br>
+<%= render "pages/navbar" %>
 
-<h1><%= @costume.name %></h1>
-
-<p>that's empty for now</p>
+<div class="container">
+  <div class="card-product">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2><%= @costume.name %></h2>
+      <p class="card-product-category"><strong><%= @costume.category %></strong></p>
+      <p class="card-product-size"><%= @costume.size %> cm</p>
+      <p class="card-product-price"><%= @costume.price_per_day %> €</p>
+      <%= link_to "Book now", new_costume_booking_path(@costume), class: "btn btn-primary" %>
+      <p class="tick"><% if @costume.available? %>
+          <%= "✅" %>
+          <% else %>
+          <%= "❌" %>
+          <% end %>
+      </p>
+    </div>
+  </div>
+</div>
