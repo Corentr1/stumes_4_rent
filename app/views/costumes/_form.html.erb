@@ -1,0 +1,10 @@
+
+<%= simple_form_for(@costume) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :category, placeholder: 'Fantasy, horror,...', class:''%>
+    <%= f.input :size %>
+    <%= f.input :price_per_day, placeholder: "Price in €" %>
+    <%= f.input :available? %>
+    <%= f.input :image_url, placeholder: 'www.imageURL.com' %>
+    <%= f.submit class:'btn btn-flat btn-primary'%> <%= link_to 'Cancel', costumes_path, class:'btn btn-secondary' %>
+<% end %>

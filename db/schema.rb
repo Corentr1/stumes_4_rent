@@ -19,12 +19,12 @@ ActiveRecord::Schema.define(version: 2022_02_22_110143) do
     t.string "status"
     t.date "start_date"
     t.date "end_date"
-    t.bigint "costumes_id"
-    t.bigint "users_id"
+    t.bigint "costume_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["costumes_id"], name: "index_bookings_on_costumes_id"
-    t.index ["users_id"], name: "index_bookings_on_users_id"
+    t.index ["costume_id"], name: "index_bookings_on_costume_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "costumes", force: :cascade do |t|
