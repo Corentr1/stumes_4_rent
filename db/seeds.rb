@@ -24,8 +24,9 @@ costume_three = Costume.create!(name: "Wonderwoman", category: "Superhero",  siz
 costume_four = Costume.create!(name: "Herokuman", category: "Superhero",  size: 186, price_per_day: 60, available?: true, image_url: "aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9hc3IvODdkNTM1ZTctZWUyMS00MzJmLWE5N2UtYjNmZjhkZjA1Nzk3LjEwNDc5NjkyNGRmMjkyNGVlMzVhYjEyZGI5MGRiNTMyLmpwZWc")
 costume_five = Costume.create!(name: "Jonaman", category: "Superhero",  size: 135, price_per_day: 34, available?: true, image_url: "aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9hc3IvODdkNTM1ZTctZWUyMS00MzJmLWE5N2UtYjNmZjhkZjA1Nzk3LjEwNDc5NjkyNGRmMjkyNGVlMzVhYjEyZGI5MGRiNTMyLmpwZWc")
 
-booking_one = Booking.create!(status: "", start_date:, end_date:)
+booking_one = Booking.create!(status: "pending", start_date:, end_date:)
 
+["pending", "accepted", "cancelled"]
 # create_table "bookings", force: :cascade do |t|
 #   t.string "status"
 #   t.date "start_date"
