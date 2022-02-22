@@ -5,5 +5,10 @@
     <%= f.input :price_per_day, placeholder: "Price in €" %>
     <%= f.input :available? %>
     <%= f.input :image_url, placeholder: 'www.imageURL.com' %>
-    <%= f.submit class:'btn btn-flat btn-primary'%> <%= link_to 'Cancel', costumes_path, class:'btn btn-secondary' %>
+    <%= f.submit class:'btn btn-flat btn-primary'%>
+    <% if @costume.id == nil %>
+      <%= link_to 'Cancel', costumes_path, class:'btn btn-secondary' %>
+    <% else %>
+      <%= link_to 'Cancel', costume_path(@costume), class:'btn btn-secondary' %>
+    <% end %>
 <% end %>
