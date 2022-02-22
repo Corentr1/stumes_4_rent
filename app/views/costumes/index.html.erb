@@ -1,5 +1,4 @@
 
-<div class= "navbar">
 <div class="container mt-3">
   <div class="row">
     <div class="col-12">
@@ -14,21 +13,11 @@
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=costume.image_url%>')">
     </div>
     <div class ="div-text-link">
-     <p><%=link_to name="Book this costume", class: "btn btn-ghost" %></p>
     </div>
       <div class="flex ms-3">
        <div class="index-card">
-            <%= link_to costume.name, costume_path(costume) %>
-            <%= link_to 'Edit', edit_costume_path(costume), class: 'ms-3 text-warning' %>
-            <%= link_to "Remove", costume_path(costume),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class: 'ms-3 text-danger'%>
+            <%= link_to costume.name, costume_path(costume), class: 'ms-3 text index-buttons' %>
          </div>
       </div>
   <% end %>
 </div>
-
-
-
-<p><%=link_to name="add a new costume", new_costume_path, class: "btn btn-ghost" %></p>
