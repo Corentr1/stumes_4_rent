@@ -5,29 +5,32 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-          <li class="nav-item active d-flex">
-            <%= link_to "'Stumes Index", costumes_path, class: 'nav-link' %>
-          </li>
+    <div class= "thetwobuttons">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item d-flex">
+              <%= link_to "'Stumes Index", costumes_path, class: 'nav-link' %>
+            </li>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <% if user_signed_in? %>
-          <li class="nav-item active d-flex">
+          <li class="nav-item d-flex">
             <%= link_to "Add 'Stume", new_costume_path, class: 'nav-link' %>
           </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "clown.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Log out", destroy_user_session_path, class: "nav-link", method: :delete, class: "nav-link dropdown-item" %>
-              <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link dropdown-item"%>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+      </div>
     </div>
+      <div class="nav-item dropdown">
+        <%= image_tag "clown.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <%= link_to "Log out", destroy_user_session_path, class: "nav-link", method: :delete, class: "nav-link dropdown-item" %>
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link dropdown-item"%>
+        </div>
+      </div>
+    <% else %>
+      <div class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </div>
+    <% end %>
+  </ul>
   </div>
 </div>
