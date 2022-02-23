@@ -9,3 +9,20 @@ text-decoration: none;
 .index-buttons:hover {
   color: rgb(41, 22, 146)
 }
+
+.banner-buttons {
+  background-color: rgb(245, 53, 101);
+  color: white;
+  font-size: large;
+  font-weight : bold ;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: none;
+  border-radius: 5px;
+  flex-grow: 1;
+  margin-top: 18px;
+}
+
+.banner-buttons:hover {
+  background-color: gold;
+  color:rgb(245, 53, 101)
+}

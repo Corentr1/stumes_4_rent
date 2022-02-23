@@ -5,6 +5,12 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  box-shadow: 0.5px 0.5px 0.7px;
+  border-radius: 6px;
+}
+
+.navbar-lewagon .navbar-collapse:hover {
+  background-color: gold;
 }
 
 .navbar-lewagon .navbar-brand img {
