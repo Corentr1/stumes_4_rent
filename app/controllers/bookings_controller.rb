@@ -5,9 +5,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @booking.status = "pending"
     @costume = Costume.find(params[:costume_id])
     @booking.costume = @costume
     @booking.user = current_user
+    raise
     if @booking.save
       redirect_to costume_path(@costume)
     else
