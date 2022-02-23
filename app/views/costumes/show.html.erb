@@ -19,10 +19,12 @@
 </div>
 
 
-<div class="book-form justify-content-center">
-<%= simple_form_for [ @costume, @booking ] do |f| %>
- <%= f.input :start_date %>
- <%= f.input :end_date %>
- <%= f.submit "Book stume", data: { confirm: "Are you sure you want to book this Costume?"},  class: "btn btn-primary" %>
- <% end %>
+<div class="form-container">
+  <div class="container">
+      <%= simple_form_for [ @costume, @booking ] do |f| %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+        <%= f.submit "Book stume", data: { confirm: "Are you sure you want to book this Costume?"},  class: "btn btn-primary" %>
+      <% end %>
+  </div>
 </div>
