@@ -9,6 +9,7 @@ class CostumesController < ApplicationController
 
   def show
     find_costume
+    @booking = Booking.new
   end
 
   def create

@@ -17,3 +17,12 @@
     </div>
   </div>
 </div>
+
+
+<div class="row mt-5 justify-content-center">
+ <%= simple_form_for [ @costume, @booking ] do |f| %>
+ <%= f.input :start_date %>
+ <%= f.input :end_date %>
+ <%= f.submit "Book stume", class: "btn btn-primary" %>
+ <% end %>
+</div>
