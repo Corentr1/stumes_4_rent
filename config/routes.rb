@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :costumes do
     resources :bookings, only: [:create]
   end
+  get "dashboard", to: 'pages#dashboard'
   resources :bookings, only: %i[index edit update destroy]
 end
