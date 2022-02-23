@@ -4,13 +4,14 @@
       <h1>Shop now all our costumes</h1>
         <p>Are you looking for <strong>COSTUMES ?!</strong> We have <%= @costumes.count %> costumes ready for all your creative's occasions !</p>
     </div>
-  <div class="cards">
-    <% @costumes.each do |costume| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=costume.image_url%>')">
-          <div class="index-card">
-            <%= link_to costume.name, costume_path(costume), class: 'ms-3 text index-buttons' %>
-          </div>
-      </div>
-    <% end %>
+   <div class="cards">
+      <% @costumes.each do |costume| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=costume.image_url%>')">
+            <div class="index-card">
+              <%= link_to costume.name, costume_path(costume), class: 'ms-3 text index-buttons' %>
+            </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
