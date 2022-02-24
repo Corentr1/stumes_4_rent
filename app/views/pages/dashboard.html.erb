@@ -5,7 +5,11 @@
         <div class="card">
           <div class="card-body">
             <div class="d-flex flex-column align-items-center text-center">
-              <%= cl_image_tag current_user.photo.key  %>
+                      <% if current_user.photo.key.nil? %>
+                        <%= image_tag 'profilepicture.jpeg', class:'rounded-circle'%>
+                      <% else %>
+                        <%= cl_image_tag current_user.photo.key, class:'rounded-circle'%>
+                      <% end %>
               <div class="mt-3">
                 <h4><%= current_user.first_name %></h4>
                 <p class="text-secondary mb-1">Costume freak</p>
