@@ -1,2 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap');
+
+.text2 {
+font-family: Papyrus;
+font-style: bold;
+font-size: 25px;
+}
+
 .welcometext {
+  font-family: 'Mr Dafoe';
+  font-size: 50px;
+  color: rgb(245, 53, 101);
+  text-shadow: 0 0 0.05em #fff, 0 0 0.2em white, 0 0 0.3em white;
+  transform: rotate(-3deg);
+  margin-top: 1px;
 }
