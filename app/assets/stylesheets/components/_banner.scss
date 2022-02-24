@@ -1,7 +1,7 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 270px 0;
+  padding: 275px 0;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('bannergif.gif');
 }
 
@@ -23,4 +23,5 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-weight: bolder;
   text-shadow: white;
+  margin-top: 20px;
 }
