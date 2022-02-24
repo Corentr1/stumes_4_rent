@@ -1,30 +1,38 @@
 <div class="container">
-  <div class="card-product">
-    <img src=<%= cl_image_path @costume.photo.key %> />
-    <div class="card-product-infos">
-      <h2><%= @costume.name %></h2>
-      <p class="card-product-category"><strong><%= @costume.category %></strong></p>
-      <p class="card-product-size"><%= @costume.size %> cm</p>
-      <p class="card-product-price"><%= @costume.price_per_day %> €</p>
-      <%= link_to "Delete", costume_path(@costume), method: :delete, data: { confirm: "Are you sure you want to delete this Costume?"}, class: "btn btn-secondary" %>
-      <%= link_to "Edit 'Stume", edit_costume_path(@costume), class:"btn btn-info" %>
-      <p class="tick"><% if @costume.available? %>
-          <%= "✅" %>
-          <% else %>
-          <%= "❌" %>
-          <% end %>
-      </p>
+  <div class="row">
+    <div class="col-8" style="margin-top: 120px">
+      <div class="card-product">
+        <img src=<%= cl_image_path @costume.photo.key %> />
+        <div class="card-product-infos">
+          <h2><%= @costume.name %></h2>
+          <p class="card-product-category"><strong><%= @costume.category %></strong></p>
+          <p class="card-product-size"><%= @costume.size %> cm</p>
+          <p class="card-product-price"><%= @costume.price_per_day %> €</p>
+          <%= link_to "Delete", costume_path(@costume), method: :delete, data: { confirm: "Are you sure you want to delete this Costume?"}, class: "stylised-button", style:"position: absolute; right: 15px; bottom: 15px;" %>
+          <%= link_to "Edit 'Stume", edit_costume_path(@costume), class:"stylised-button", style:"position: absolute; right: 90px; bottom: 15px;" %>
+          <p class="tick"><% if @costume.available? %>
+              <%= "✅" %>
+              <% else %>
+              <%= "❌" %>
+              <% end %>
+          </p>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-
-<div class="form-container">
-  <div class="container">
-      <%= simple_form_for [ @costume, @booking ] do |f| %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <%= f.submit "Book stume", data: { confirm: "Are you sure you want to book this Costume?"},  class: "btn btn-primary" %>
-      <% end %>
+    <div class="col-4" style="margin-top: 120px">
+      <div class="container">
+        <div class="card">
+          <div class="card-body" style="height: 302px">
+            <div class="form-container">
+              <%= simple_form_for [ @costume, @booking ] do |f| %>
+                <%= f.input :start_date %>
+                <%= f.input :end_date %>
+                <%= f.submit "Book stume", data: { confirm: "Your S'tume is booked!"},  class: "stylised-button", style: "position: absolute; right: 130px; bottom: 40px;" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

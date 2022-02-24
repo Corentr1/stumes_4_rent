@@ -1,0 +1,11 @@
+.stylised-button {
+  color: grey;
+  text-decoration: none;
+  padding: 7px;
+  box-shadow: 0.8px 0.8px 1px rgb(245, 53, 101);
+  border-radius: 6px;
+}
+
+.stylised-button:hover {
+  background-color: gold;
+}
