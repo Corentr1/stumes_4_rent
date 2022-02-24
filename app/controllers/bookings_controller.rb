@@ -16,10 +16,18 @@ class BookingsController < ApplicationController
     end
   end
 
-  def edit
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    @booking.save
+    redirect_to dashboard_path(current_user)
   end
 
-  def update
+  def cancel
+    @booking = Booking.find(params[:id])
+    @booking.status = "cancelled"
+    @booking.save
+    redirect_to dashboard_path(current_user)
   end
 
   def destroy
