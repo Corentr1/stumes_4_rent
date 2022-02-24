@@ -16,10 +16,21 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to dashboard_path(current_user)
+  end
+
   private
 
   def booking_params
     params.require(:booking).permit(:status, :start_date, :end_date, :costume_id)
   end
-
 end

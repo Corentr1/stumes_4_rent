@@ -90,7 +90,7 @@
         <div class="row gutters-sm">
           <div class="col-sm-6 mb-3">
             <% if current_user.costumes.empty? %>
-            <div class="card h-10">
+            <div class="card h-10 mt-3">
               <div class="card-body">
                 <h6 class="d-flex align-items-center mb-3">Your s'tumes' bookings</h6>
                 <div class="d-flex flex-column align-items-center text-center">
@@ -103,11 +103,11 @@
                 <h6 class="d-flex align-items-center mb-3">Your s'tumes got booked!</h6>
                 <% current_user.costumes.each do |costume| %>
                   <% costume.bookings.each do |booking| %>
-                    <div class="card">
+                    <div class="card mt-3">
                       <div class="card-body">
                         <h5 class="card-title"><%= booking.costume.name %></h5>
                         <p class="card-text"><%= "From : #{booking.start_date} | To : #{booking.end_date}" %></p>
-                        <a href="#" class="btn btn-primary">Cancel</a> <span class="card-text">Status : <%= booking.status %></span>
+                        <p>Status : <%= booking.status %></p>
                       </div>
                     </div>
                   <% end %>
@@ -130,11 +130,15 @@
               <div class="card-body">
                 <h6 class="d-flex align-items-center mb-3">Your Bookings</h6>
                 <% current_user.bookings.each do |booking| %>
-                <div class="card">
+                <div class="card mt-3">
                   <div class="card-body">
                     <h5 class="card-title"><%= booking.costume.name %></h5>
                     <p class="card-text"><%= "From : #{booking.start_date} | To : #{booking.end_date}" %></p>
-                    <a href="#" class="btn btn-primary">Cancel</a> <span class="card-text">Status : <%= booking.status %></span>
+                    <%= link_to "X",
+                                    booking_path(booking),
+                                    method: :delete,
+                                    data: { confirm: "Are you sure?" },
+                                    class: 'btn btn-danger'%><span class="card-text">Status : <%= booking.status %></span>
                   </div>
                 </div>
                 <% end %>
