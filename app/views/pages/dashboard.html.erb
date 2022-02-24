@@ -82,12 +82,13 @@
                 Somewhere
               </div>
             </div>
-            <%# <hr>
+            <hr>
             <div class="row">
               <div class="col-sm-12">
-                <a class="btn btn-info " target="__blank" href="">Edit</a>
+                <%= link_to "Make it shine", edit_user_registration_path(current_user), class: "btn btn-info" %>
+                <%# <a class="btn btn-info" target="__blank" href="">Make it shine!</a> %>
               </div>
-            </div> %>
+            </div>
           </div>
         </div>
         <div class="row gutters-sm">
@@ -112,6 +113,24 @@
                         <p class="card-text"><%= "Booked by : #{booking.user.first_name}" %></p>
                         <p class="card-text"><%= "From : #{booking.start_date} | To : #{booking.end_date}" %></p>
                         <p>Status : <%= booking.status %></p>
+                        <% if booking.status == "pending" %>
+                          <%= link_to "accept",
+                                                accept_booking_path(booking),
+                                                method: :patch,
+                                                class: "btn btn-light",
+                                                style: "text-decoration: none; color:black;"%>
+                          <%= link_to "cancel",
+                                                cancel_booking_path(booking),
+                                                method: :patch,
+                                                class: "btn btn-secondary",
+                                                style: "text-decoration: none; color:black"%>
+                        <% else %>
+                          <%= link_to "❌",
+                                            booking_path(booking),
+                                            method: :delete,
+                                            data: { confirm: "Are you sure?" },
+                                            style: "text-decoration: none; position: absolute; right: 15px; top: 10px"%>
+                        <% end %>
                       </div>
                     </div>
                   <% end %>
