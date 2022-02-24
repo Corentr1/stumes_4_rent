@@ -1,5 +1,5 @@
 .footer {
-  background: #7fbe7356;
+  background: gold;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,6 +9,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  opacity: 0.5;
 }
 .footer-links {
   display: flex;
