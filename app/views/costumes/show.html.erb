@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card-product">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <img src=<%= cl_image_path @costume.photo.key %> />
     <div class="card-product-infos">
       <h2><%= @costume.name %></h2>
       <p class="card-product-category"><strong><%= @costume.category %></strong></p>
