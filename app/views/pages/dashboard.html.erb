@@ -82,12 +82,13 @@
                 Somewhere
               </div>
             </div>
-            <%# <hr>
+            <hr>
             <div class="row">
               <div class="col-sm-12">
-                <a class="btn btn-info " target="__blank" href="">Edit</a>
+                <%= link_to "Make it shine", edit_user_registration_path(current_user), class: "btn btn-info" %>
+                <%# <a class="btn btn-info" target="__blank" href="">Make it shine!</a> %>
               </div>
-            </div> %>
+            </div>
           </div>
         </div>
         <div class="row gutters-sm">
@@ -108,9 +109,28 @@
                   <% costume.bookings.each do |booking| %>
                     <div class="card mt-3">
                       <div class="card-body">
-                        <h5 class="card-title"><%= booking.costume.name %></h5>
+                        <h5 class="card-title" style="text-align: center"><%= booking.costume.name %></h5>
+                        <p class="card-text"><%= "Booked by : #{booking.user.first_name}" %></p>
                         <p class="card-text"><%= "From : #{booking.start_date} | To : #{booking.end_date}" %></p>
                         <p>Status : <%= booking.status %></p>
+                        <% if booking.status == "pending" %>
+                          <%= link_to "accept",
+                                                accept_booking_path(booking),
+                                                method: :patch,
+                                                class: "btn btn-light",
+                                                style: "text-decoration: none; color:black;"%>
+                          <%= link_to "cancel",
+                                                cancel_booking_path(booking),
+                                                method: :patch,
+                                                class: "btn btn-secondary",
+                                                style: "text-decoration: none; color:black"%>
+                        <% else %>
+                          <%= link_to "❌",
+                                            booking_path(booking),
+                                            method: :delete,
+                                            data: { confirm: "Are you sure?" },
+                                            style: "text-decoration: none; position: absolute; right: 15px; top: 10px"%>
+                        <% end %>
                       </div>
                     </div>
                   <% end %>
@@ -129,19 +149,20 @@
                 </div>
               </div>
             <% else %>
-            <div class="card h-100">
+            <div class="card">
               <div class="card-body">
                 <h6 class="d-flex align-items-center mb-3">Your Bookings</h6>
                 <% current_user.bookings.each do |booking| %>
                 <div class="card mt-3">
                   <div class="card-body">
-                    <h5 class="card-title"><%= booking.costume.name %></h5>
+                    <h5 class="card-title" style="text-align: center"><%= link_to booking.costume.name, costume_path(booking.costume), style: 'text-decoration: none; color: black'%></h5>
                     <p class="card-text"><%= "From : #{booking.start_date} | To : #{booking.end_date}" %></p>
-                    <%= link_to "X",
+                    <%= link_to "❌",
                                     booking_path(booking),
                                     method: :delete,
                                     data: { confirm: "Are you sure?" },
-                                    class: 'btn btn-danger'%><span class="card-text">Status : <%= booking.status %></span>
+                                    style: "text-decoration: none; position: absolute; right: 15px; top: 10px"%>
+                    <p class="card-text">Status : <%= booking.status %></p>
                   </div>
                 </div>
                 <% end %>

@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
   get "dashboard", to: 'pages#dashboard'
-  resources :bookings, only: %i[index edit update destroy]
+  resources :bookings, only: %i[index edit destroy]
+  patch "bookings/:id/accept", to: 'bookings#accept', as: 'accept_booking'
+  patch "bookings/:id/reject", to: 'bookings#cancel', as: 'cancel_booking'
 end
