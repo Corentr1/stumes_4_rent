@@ -2,6 +2,13 @@
   width: 40px;
   border-radius: 50%;
   height: 40px;
+  object-fit: cover;
+  // border: solid 1px rgb(245, 53, 101);
+}
+
+.avatar:hover {
+  border: solid 1px rgb(245, 53, 101);
+  transition: 0.1s
 }
 // .avatar-large {
 //   width: 56px;
