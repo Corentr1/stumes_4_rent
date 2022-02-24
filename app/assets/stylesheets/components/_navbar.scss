@@ -3,10 +3,34 @@
   background: white;
 }
 
+.navbar-lewagon {
+ background-color: rgb(236, 241, 247);
+}
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  box-shadow: 0.8px 0.8px 1px rgb(245, 53, 101);
+  border-radius: 6px;
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: end;
+}
+
+.navbar-lewagon .navbar-collapse:hover {
+  background-color: gold;
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.thetwobuttons {
+  display: flex;
+  justify-content: space-between;
+  width: 270px;
+}
+
+.nav-link {
+  color: grey;
 }

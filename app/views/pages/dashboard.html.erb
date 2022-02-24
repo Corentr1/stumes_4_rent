@@ -16,112 +16,137 @@
             </div>
           </div>
         </div>
-      </div>
-
-          <div class="col-md-8">
-            <div class="card mb-3">
+        <% if current_user.costumes.empty? %>
+            <div class="card h-10 mt-3">
               <div class="card-body">
-                <div class="row">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Full Name</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    <%= "#{current_user.first_name} #{current_user.last_name}" %>
-                  </div>
+                <h6 class="d-flex align-items-center mb-3">Your s'tumes</h6>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <small>Nothing here... For now!</small>
                 </div>
-                <hr>
-                <div class="row">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Email</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    <%= current_user.email %>
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Phone</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    <%= current_user.phone_number %>
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Address</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    Somewhere
-                  </div>
-                </div>
-                <%# <hr>
-                <div class="row">
-                  <div class="col-sm-12">
-                    <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
-                  </div>
-                </div> %>
               </div>
             </div>
-
-            <div class="row gutters-sm">
-              <div class="col-sm-6 mb-3">
-                <% if current_user.costumes.empty? %>
-                <div class="card h-10">
-                  <div class="card-body">
-                    <h6 class="d-flex align-items-center mb-3">Your s'tumes</h6>
-                    <div class="d-flex flex-column align-items-center text-center">
-                      <small>Nothing here... For now!</small>
+            <% else %>
+            <div class="card mt-3">
+              <div class="card-body">
+                <h6 class="d-flex align-items-center mb-3">Your s'tumes</h6>
+                <% current_user.costumes.each do |costume| %>
+                  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=costume.image_url%>')">
+                    <div class="index-card">
+                      <%= link_to costume.name, costume_path(costume), class: 'ms-3 text index-buttons' %>
                     </div>
                   </div>
-                </div>
-                <% else %>
-                <div class="card h-100">
-                  <div class="card-body">
-                    <h6 class="d-flex align-items-center mb-3">Your s'tumes</h6>
-                    <% current_user.costumes.each do |costume| %>
-                      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=costume%>')">
-                        <div class="index-card">
-                          <%= link_to costume.name, costume_path(costume), class: 'ms-3 text index-buttons' %>
-                        </div>
-                      </div>
-                      <br>
-                    <% end %>
-                  </div>
-                </div>
                 <% end %>
               </div>
-              <div class="col-sm-6 mb-3">
-                <% if current_user.bookings.empty? %>
-                <div class="card h-10">
-                  <div class="card-body">
-                    <h6 class="d-flex align-items-center mb-3">Your Bookings</h6>
-                    <div class="d-flex flex-column align-items-center text-center">
-                      <small>Nothing here... For now!</small>
-                    </div>
-                  </div>
-                <% else %>
-                <div class="card h-100">
-                  <div class="card-body">
-                    <h6 class="d-flex align-items-center mb-3">Your Bookings</h6>
-                    <% current_user.bookings.each do |booking| %>
-                    <div class="card">
+            </div>
+            <% end %>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Full Name</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <%= "#{current_user.first_name} #{current_user.last_name}" %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <%= current_user.email %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Phone</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                <%= current_user.phone_number %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Address</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                Somewhere
+              </div>
+            </div>
+            <%# <hr>
+            <div class="row">
+              <div class="col-sm-12">
+                <a class="btn btn-info " target="__blank" href="">Edit</a>
+              </div>
+            </div> %>
+          </div>
+        </div>
+        <div class="row gutters-sm">
+          <div class="col-sm-6 mb-3">
+            <% if current_user.costumes.empty? %>
+            <div class="card h-10 mt-3">
+              <div class="card-body">
+                <h6 class="d-flex align-items-center mb-3">Your s'tumes' bookings</h6>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <small>Nothing here... For now!</small>
+                </div>
+              </div>
+            <% else %>
+            <div class="card">
+              <div class="card-body">
+                <h6 class="d-flex align-items-center mb-3">Your s'tumes got booked!</h6>
+                <% current_user.costumes.each do |costume| %>
+                  <% costume.bookings.each do |booking| %>
+                    <div class="card mt-3">
                       <div class="card-body">
                         <h5 class="card-title"><%= booking.costume.name %></h5>
                         <p class="card-text"><%= "From : #{booking.start_date} | To : #{booking.end_date}" %></p>
-                        <a href="#" class="btn btn-primary">Cancel</a> <span class="card-text">Status : <%= booking.status %></span>
+                        <p>Status : <%= booking.status %></p>
                       </div>
                     </div>
-                    <% end %>
-                  </div>
+                  <% end %>
                 <% end %>
+              </div>
+            <% end %>
+            </div>
+          </div>
+          <div class="col-sm-6 mb-3">
+            <% if current_user.bookings.empty? %>
+            <div class="card h-10">
+              <div class="card-body">
+                <h6 class="d-flex align-items-center mb-3">Your Bookings</h6>
+                <div class="d-flex flex-column align-items-center text-center">
+                  <small>Nothing here... For now!</small>
                 </div>
               </div>
-
-
+            <% else %>
+            <div class="card h-100">
+              <div class="card-body">
+                <h6 class="d-flex align-items-center mb-3">Your Bookings</h6>
+                <% current_user.bookings.each do |booking| %>
+                <div class="card mt-3">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= booking.costume.name %></h5>
+                    <p class="card-text"><%= "From : #{booking.start_date} | To : #{booking.end_date}" %></p>
+                    <%= link_to "X",
+                                    booking_path(booking),
+                                    method: :delete,
+                                    data: { confirm: "Are you sure?" },
+                                    class: 'btn btn-danger'%><span class="card-text">Status : <%= booking.status %></span>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
