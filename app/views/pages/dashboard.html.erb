@@ -105,7 +105,8 @@
                   <% costume.bookings.each do |booking| %>
                     <div class="card mt-3">
                       <div class="card-body">
-                        <h5 class="card-title"><%= booking.costume.name %></h5>
+                        <h5 class="card-title" style="text-align: center"><%= booking.costume.name %></h5>
+                        <p class="card-text"><%= "Booked by : #{booking.user.first_name}" %></p>
                         <p class="card-text"><%= "From : #{booking.start_date} | To : #{booking.end_date}" %></p>
                         <p>Status : <%= booking.status %></p>
                       </div>
@@ -132,7 +133,7 @@
                 <% current_user.bookings.each do |booking| %>
                 <div class="card mt-3">
                   <div class="card-body">
-                    <h5 class="card-title"><%= booking.costume.name %></h5>
+                    <h5 class="card-title" style="text-align: center"><%= link_to booking.costume.name, costume_path(booking.costume), style: 'text-decoration: none; color: black'%></h5>
                     <p class="card-text"><%= "From : #{booking.start_date} | To : #{booking.end_date}" %></p>
                     <%= link_to "X",
                                     booking_path(booking),
