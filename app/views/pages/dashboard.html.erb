@@ -11,7 +11,7 @@
                         <%= cl_image_tag current_user.photo.key, class:'dashboard-avatar'%>
                       <% end %>
               <div class="mt-3">
-                <h4><%= current_user.first_name %></h4>
+                <h4 class="welcometext"><%= current_user.first_name %></h4>
                 <p class="text-secondary mb-1">Costume freak</p>
                 <p class="text-muted font-size-sm">Somewhere</p>
                 <%# <button class="btn btn-outline-primary">Contact</button> %>
@@ -23,7 +23,7 @@
         <% if current_user.costumes.empty? %>
             <div class="card h-10 mt-3">
               <div class="card-body">
-                <h6 class="d-flex align-items-center mb-3">Your s'tumes</h6>
+                <h6 class="d-flex align-items-center mb-3 text2">Your s'tumes</h6>
                 <div class="d-flex flex-column align-items-center text-center">
                   <small>Nothing here... For now!</small>
                 </div>
@@ -32,7 +32,7 @@
             <% else %>
             <div class="card mt-3">
               <div class="card-body">
-                <h6 class="d-flex align-items-center mb-3">Your s'tumes</h6>
+                <h6 class="d-flex align-items-center mb-3 text2">Your s'tumes</h6>
                 <% current_user.costumes.each do |costume| %>
                   <div class="card-category mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%=cl_image_path costume.photo.key%>')">
                     <div class="index-card">
@@ -49,7 +49,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Full Name</h6>
+                <h6 class="mb-0  text2">Full Name</h6>
               </div>
               <div class="col-sm-9 text-secondary">
                 <%= "#{current_user.first_name} #{current_user.last_name}" %>
@@ -58,7 +58,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Email</h6>
+                <h6 class="mb-0 text2">Email</h6>
               </div>
               <div class="col-sm-9 text-secondary">
                 <%= current_user.email %>
@@ -67,7 +67,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Phone</h6>
+                <h6 class="mb-0 text2">Phone</h6>
               </div>
               <div class="col-sm-9 text-secondary">
                 <%= current_user.phone_number %>
@@ -76,7 +76,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-3">
-                <h6 class="mb-0">Address</h6>
+                <h6 class="mb-0 text2">Address</h6>
               </div>
               <div class="col-sm-9 text-secondary">
                 Somewhere
@@ -85,7 +85,7 @@
             <hr>
             <div class="row">
               <div class="col-sm-12">
-                <%= link_to "Make it shine", edit_user_registration_path(current_user), class: "btn btn-info" %>
+                <%= link_to "Make it shine", edit_user_registration_path(current_user), class: "stylised-button" %>
                 <%# <a class="btn btn-info" target="__blank" href="">Make it shine!</a> %>
               </div>
             </div>
@@ -96,7 +96,7 @@
             <% if current_user.costumes.empty? %>
             <div class="card h-10">
               <div class="card-body">
-                <h6 class="d-flex align-items-center mb-3">Your s'tumes' bookings</h6>
+                <h6 class="d-flex align-items-center mb-3 text2">Your s'tumes' bookings</h6>
                 <div class="d-flex flex-column align-items-center text-center">
                   <small>Nothing here... For now!</small>
                 </div>
@@ -104,12 +104,12 @@
             <% else %>
             <div class="card">
               <div class="card-body">
-                <h6 class="d-flex align-items-center mb-3">Your s'tumes got booked!</h6>
+                <h6 class="d-flex align-items-center mb-3 text2">Your s'tumes got booked!</h6>
                 <% current_user.costumes.each do |costume| %>
                   <% costume.bookings.each do |booking| %>
                     <div class="card mt-3">
                       <div class="card-body">
-                        <h5 class="card-title" style="text-align: center"><%= booking.costume.name %></h5>
+                        <h5 class="card-title welcometext" style="text-align: center; color: rgb(245, 53, 101); font-size: 40px"><%= booking.costume.name %></h5>
                         <p class="card-text"><%= "Booked by : #{booking.user.first_name}" %></p>
                         <p class="card-text"><%= "From : #{booking.start_date} | To : #{booking.end_date}" %></p>
                         <p>Status : <%= booking.status %></p>
@@ -117,12 +117,12 @@
                           <%= link_to "accept",
                                                 accept_booking_path(booking),
                                                 method: :patch,
-                                                class: "btn btn-light",
+                                                class: "stylised-button",
                                                 style: "text-decoration: none; color:black;"%>
                           <%= link_to "cancel",
                                                 cancel_booking_path(booking),
                                                 method: :patch,
-                                                class: "btn btn-secondary",
+                                                class: "stylised-button",
                                                 style: "text-decoration: none; color:black"%>
                         <% else %>
                           <%= link_to "❌",
@@ -143,7 +143,7 @@
             <% if current_user.bookings.empty? %>
             <div class="card h-10">
               <div class="card-body">
-                <h6 class="d-flex align-items-center mb-3">Your Bookings</h6>
+                <h6 class="d-flex align-items-center mb-3 text2">Your Bookings</h6>
                 <div class="d-flex flex-column align-items-center text-center">
                   <small>Nothing here... For now!</small>
                 </div>
@@ -151,11 +151,11 @@
             <% else %>
             <div class="card">
               <div class="card-body">
-                <h6 class="d-flex align-items-center mb-3">Your Bookings</h6>
+                <h6 class="d-flex align-items-center mb-3 text2">Your Bookings</h6>
                 <% current_user.bookings.each do |booking| %>
                 <div class="card mt-3">
                   <div class="card-body">
-                    <h5 class="card-title" style="text-align: center"><%= link_to booking.costume.name, costume_path(booking.costume), style: 'text-decoration: none; color: black'%></h5>
+                    <h5 class="card-title welcometext" style="text-align: center"><%= link_to booking.costume.name, costume_path(booking.costume), style: 'text-decoration: none; color: rgb(245, 53, 101); font-size: 40px'%></h5>
                     <p class="card-text"><%= "From : #{booking.start_date} | To : #{booking.end_date}" %></p>
                     <%= link_to "❌",
                                     booking_path(booking),
