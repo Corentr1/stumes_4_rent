@@ -75,15 +75,6 @@
             </div>
             <hr>
             <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0 text2">Address</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                Somewhere
-              </div>
-            </div>
-            <hr>
-            <div class="row">
               <div class="col-sm-12">
                 <%= link_to "Make it shine", edit_user_registration_path(current_user), class: "stylised-button" %>
                 <%# <a class="btn btn-info" target="__blank" href="">Make it shine!</a> %>
@@ -93,8 +84,8 @@
         </div>
         <div class="row gutters-sm">
           <div class="col-sm-6 mb-3">
-            <% if current_user.costumes.empty? %>
-            <div class="card h-10">
+            <% if current_user.costumes.each {|costume| costume.bookings.empty?} %>
+            <div class="card">
               <div class="card-body">
                 <h6 class="d-flex align-items-center mb-3 text2">Your s'tumes' bookings</h6>
                 <div class="d-flex flex-column align-items-center text-center">
