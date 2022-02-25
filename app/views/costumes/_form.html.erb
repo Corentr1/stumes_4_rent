@@ -4,6 +4,7 @@
     <%= f.input :size %>
     <%= f.input :price_per_day, placeholder: "Price in €" %>
     <%= f.input :available? %>
+    <%= f.input :address %>
     <%= f.input :photo, as: :file %>
     <%= f.submit class:'stylised-button'%>
     <% if @costume.id == nil %>
