@@ -25,10 +25,10 @@
       <div class="container">
         <div class="card" style="box-shadow: 0.8px 0.8px 2px rgb(245, 53, 101);">
           <div class="card-body" style="height: 302px">
-            <div class="form-container">
+            <div class="form-container"  data-controller="flatpickr">
               <%= simple_form_for [ @costume, @booking ] do |f| %>
-                <%= f.input :start_date %>
-                <%= f.input :end_date %>
+                <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+                <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
                 <%= f.submit "Book stume", data: { confirm: "Your S'tume is booked!"},  class: "stylised-button", style: "position: absolute; right: 130px; bottom: 40px;" %>
               <% end %>
             </div>
@@ -36,17 +36,5 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-
-<div class="container">
-  <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-    <h2>Flatpickr Demo</h2>
-    <%= simple_form_for :search, method: "get" do |f| %>
-      <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-      <%= f.button :submit, "Go", class: "btn btn-primary" %>
-    <% end %>
   </div>
 </div>
