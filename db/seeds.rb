@@ -37,27 +37,27 @@ user.photo.attach(io: file, filename: 'profile5.jpeg', content_type: 'image/jpeg
 user.save
 
 file = URI.open('https://nerdist.com/wp-content/uploads/2022/02/spider-man-irl-meme.jpeg')
-costume = Costume.create!(name: "Spiderman", user: User.all.sample, category: "Superhero",  size: 158, price_per_day: 21, available?: true)
+costume = Costume.create!(name: "Spiderman", user: User.all.sample, category: "Superhero",  size: 158, price_per_day: 21, available?: true, address: 'Bourse, Brussels')
 costume.photo.attach(io: file, filename: 'spiderman.jpeg', content_type: 'image/jpeg')
 costume.save
 
 file = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPDRJ6Y0ssxwLI5wLepeLXwcaKMhWw7QTzWA&usqp=CAU')
-costume = Costume.create!(name: "Batman", user: User.all.sample, category: "Superhero",  size: 146, price_per_day: 25, available?: true)
+costume = Costume.create!(name: "Batman", user: User.all.sample, category: "Superhero",  size: 146, price_per_day: 25, available?: true, address: 'Molenbeek, Brussels')
 costume.photo.attach(io: file, filename: 'batman.jpeg', content_type: 'image/jpeg')
 costume.save
 
 file = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOC7fIuPz58wRgAte2eZeNBconBXHBA5JWRA&usqp=CAU')
-costume = Costume.create!(name: "Wonderwoman", user: User.all.sample, category: "Superhero",  size: 123, price_per_day: 19, available?: true)
+costume = Costume.create!(name: "Wonderwoman", user: User.all.sample, category: "Superhero",  size: 123, price_per_day: 19, available?: true, address: 'Evere, Brussels')
 costume.photo.attach(io: file, filename: 'wonderwoman.jpeg', content_type: 'image/jpeg')
 costume.save
 
 file = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgDEKyhWoPEtG3HQY2777YfGsX9ykuoqoPBQ&usqp=CAU')
-costume = Costume.create!(name: "Herokuman", user: User.all.sample, category: "Superhero",  size: 186, price_per_day: 60, available?: true)
+costume = Costume.create!(name: "Herokuman", user: User.all.sample, category: "Superhero",  size: 186, price_per_day: 60, available?: true, address: 'Anderlecht, Brussels')
 costume.photo.attach(io: file, filename: 'herokuman.jpeg', content_type: 'image/jpeg')
 costume.save
 
 file = URI.open('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT89GAtNj0sS4wHG86M34Fc_05qhWC_cTCrAQ&usqp=CAU')
-costume = Costume.create!(name: "Jonaman", user: User.all.sample, category: "Superhero",  size: 135, price_per_day: 34, available?: true)
+costume = Costume.create!(name: "Jonaman", user: User.all.sample, category: "Superhero",  size: 135, price_per_day: 34, available?: true, address: 'Cantersteen 10, Brussels')
 costume.photo.attach(io: file, filename: 'jonaman.jpeg', content_type: 'image/jpeg')
 costume.save
 
