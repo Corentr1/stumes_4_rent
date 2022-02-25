@@ -6,7 +6,8 @@ class CostumesController < ApplicationController
       {
         lat: costume.latitude,
         lng: costume.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { costume: costume })
+        info_window: render_to_string(partial: "info_window", locals: { costume: costume }),
+        image_url: helpers.asset_url('marker.gif')
       }
     end
   end
