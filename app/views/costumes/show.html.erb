@@ -7,11 +7,11 @@
           <h2><%= @costume.name %></h2>
           <p class="card-product-category"><strong><%= @costume.category %></strong></p>
           <p class="card-product-size"><%= @costume.size %> cm</p>
-          <p class="card-product-address"><%= @costume.address %> cm</p>
+          <p class="card-product-address"><%= @costume.address %></p>
           <p class="card-product-price"><%= @costume.price_per_day %> €</p>
           <%= link_to "Delete", costume_path(@costume), method: :delete, data: { confirm: "Are you sure you want to delete this Costume?"}, class: "stylised-button", style:"position: absolute; right: 15px; bottom: 15px;" %>
           <%= link_to "Edit 'Stume", edit_costume_path(@costume), class:"stylised-button", style:"position: absolute; right: 90px; bottom: 15px;" %>
-          <p class="tick"><% if @costume.available? %>
+          <p class="tick"><% if @costume.available? == true %>
               <%= "✅" %>
               <% else %>
               <%= "❌" %>

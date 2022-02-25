@@ -2,13 +2,11 @@ class CostumesController < ApplicationController
   def index
     @costumes = Costume.all
 
-    @markers = @costumes.geocoded.map do |costume|
-      {
-        lat: costume.latitude,
-        lng: costume.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { costume: costume }),
-        image_url:
-      }
+    @markers = @costumes.geocoded.map do |costume| {
+      lat: costume.latitude,
+      lng: costume.longitude,
+      info_window: render_to_string(partial: "info_window", locals: { costume: costume })
+    }
     end
   end
 
@@ -57,6 +55,6 @@ class CostumesController < ApplicationController
   end
 
   def costume_params
-    params.require(:costume).permit(:name, :category, :size, :price_per_day, :available?, :photo)
+    params.require(:costume).permit(:name, :category, :size, :price_per_day, :available?, :photo, :address)
   end
 end

@@ -1,15 +1,17 @@
-<%= simple_form_for(@costume) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :category, placeholder: 'Fantasy, horror,...', class:''%>
-    <%= f.input :size %>
-    <%= f.input :price_per_day, placeholder: "Price in €" %>
-    <%= f.input :available? %>
-    <%= f.input :address %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit class:'stylised-button'%>
-    <% if @costume.id == nil %>
-      <%= link_to 'Cancel', costumes_path, class:'stylised-button' %>
-    <% else %>
-      <%= link_to 'Cancel', costume_path(@costume), class:'stylised-button' %>
-    <% end %>
-<% end %>
+<div class="container">
+  <%= simple_form_for(@costume) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :category, placeholder: 'Fantasy, horror,...', class:''%>
+      <%= f.input :size, placeholder: 'in cm' %>
+      <%= f.input :price_per_day, placeholder: "Price in €" %>
+      <%= f.input :available? %>
+      <%= f.input :address %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit class:'stylised-button'%>
+      <% if @costume.id == nil %>
+        <%= link_to 'Cancel', costumes_path, class:'stylised-button' %>
+      <% else %>
+        <%= link_to 'Cancel', costume_path(@costume), class:'stylised-button' %>
+      <% end %>
+  <% end %>
+</div>
