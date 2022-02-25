@@ -25,6 +25,7 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  opacity: 0.7;
 }
 
 .thetwobuttons {
@@ -37,4 +38,11 @@
   color: grey;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 18px;
+}
+
+
+.navbar-brand img:hover {
+  opacity: 1;
+
+
 }
